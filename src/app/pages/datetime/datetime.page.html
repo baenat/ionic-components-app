@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Datetime</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="calendar"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Datos de fechas</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Fecha de nacimiento</ion-label>
+      <ion-datetime [value]="fecNacimiento.toISOString()" displayFormat="DD MMMM YYYY"
+        (ionChange)="changeDate($event)"></ion-datetime>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Restricciones</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Min y Max</ion-label>
+      <ion-datetime displayFormat="DD MMMM YYYY" min="2020-01-01" max="2028-12-31"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Años</ion-label>
+      <ion-datetime displayFormat="YYYY" min="2020" max="2028"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Meses</ion-label>
+      <ion-datetime displayFormat="MMMM" min="2020" max="2028"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Custom Options</ion-label>
+      <ion-datetime [pickerOptions]="customPickerOptions" [yearValues]="customYearValues"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Disabled</ion-label>
+      <ion-datetime id="dynamicDisabled" displayFormat="MM DD YY" disabled value="2025-12-15"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>HH:mm</ion-label>
+      <ion-datetime displayFormat="HH:mm"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>h:mm a</ion-label>
+      <ion-datetime displayFormat="h:mm a"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>hh:mm A (15 min steps)</ion-label>
+      <ion-datetime displayFormat="h:mm A" minuteValues="0,15,30,45"></ion-datetime>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

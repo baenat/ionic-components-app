@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Verificación OTP Basic</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="otp-container">
+    <!-- Header -->
+    <div class="otp-header">
+      <h2 class="otp-title">{{ title }}</h2>
+      <p class="otp-subtitle">{{ subtitle }}</p>
+    </div>
+
+    <!-- OTP Inputs -->
+    <div class="otp-inputs-container">
+      <div class="otp-inputs">
+        <ion-input #otpInput *ngFor="let digit of otpDigits; let i = index" class="otp-input" [class.filled]="digit"
+          type="tel" maxlength="1" [value]="digit" (ionInput)="onInput($event, i)" (keydown)="onKeyDown($event, i)"
+          (paste)="onPaste($event)" placeholder="" inputmode="numeric">
+        </ion-input>
+      </div>
+    </div>
+
+    <!-- Timer and Resend -->
+    <div class="otp-footer">
+      <div class="timer-container" [class.expired]="canResend">
+        <ion-icon name="time-outline" class="timer-icon"></ion-icon>
+        <span class="timer-text" *ngIf="!canResend">
+          Tiempo restante: <strong>{{ formattedTime }}</strong>
+        </span>
+        <span class="timer-expired" *ngIf="canResend">
+          Código expirado
+        </span>
+      </div>
+
+      <ion-button fill="clear" class="resend-button" [disabled]="!canResend || isLoading" (click)="resendCode()">
+        <ion-spinner name="crescent" slot="start" *ngIf="isLoading"></ion-spinner>
+        <span>{{ resendText }}</span>
+      </ion-button>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions-section">
+      <!-- <ion-button expand="block" class="verify-button" [disabled]="!isOtpComplete() || isLoading" (click)="verifyOtp()">
+        <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+        <span *ngIf="!isLoading">Verificar código</span>
+      </ion-button> -->
+
+      <ion-button fill="clear" expand="block" class="clear-button" (click)="clearOtp()">
+        Limpiar
+      </ion-button>
+    </div>
+
+    <!-- Instructions -->
+    <ion-list class="otp-instructions">
+      <p>• Ingresa los {{ maxOtpLength }} dígitos del código</p>
+      <p>• El código se validará automáticamente</p>
+      <p>• Puedes pegar el código completo</p>
+    </ion-list>
+  </div>
+
+</ion-content>

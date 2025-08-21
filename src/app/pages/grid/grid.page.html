@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Grid</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" sizeLg="3" sizeMd="6" *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 , 11, 12]">
+        <ion-card>
+          <ion-img [src]="'https://media.tacdn.com/media/attractions-splice-spp-674x446/06/ef/4c/9c.jpg'"></ion-img>
+        </ion-card>
+        
+        <ion-card-header>
+          <ion-card-subtitle>Country</ion-card-subtitle>
+          <ion-card-title>Dubai</ion-card-title>
+        </ion-card-header>
+        
+        <ion-card-content>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur voluptatibus fugiat eveniet laudantium nesciunt, ab provident aliquid. Quo, perferendis doloribus maxime sapiente, nobis possimus vitae non amet libero enim rem.
+        </ion-card-content>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+
+</ion-content>

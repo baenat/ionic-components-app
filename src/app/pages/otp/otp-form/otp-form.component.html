@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Verificación OTP Form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="otp-container">
+    <!-- Header -->
+    <div class="otp-header">
+      <h2 class="otp-title">{{ title }}</h2>
+      <p class="otp-subtitle">{{ subtitle }}</p>
+    </div>
+
+    <!-- Form -->
+    <form [formGroup]="formCodeOtp" #form="ngForm" autocomplete="off">
+      <div class="otp-inputs-container" formArrayName="code">
+        <div class="otp-inputs">
+          <div *ngFor="let item of codeControl.controls; let i = index">
+            <ion-input #otpInput required class="otp-input" [class.filled]="item.value" [formControlName]="i" type="tel"
+              maxlength="1" inputmode="numeric" (keydown)="onKeyDown($event, i)"
+              (paste)="onPaste($event, i)"></ion-input>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <!-- Timer and Resend -->
+    <div class="otp-footer">
+      <div class="timer-container" [class.expired]="canResend">
+        <ion-icon name="time-outline" class="timer-icon"></ion-icon>
+        <span class="timer-text" *ngIf="!canResend">
+          Tiempo restante: <strong>{{ formattedTime }}</strong>
+        </span>
+        <span class="timer-expired" *ngIf="canResend">
+          {{ timeExpiredText }}
+        </span>
+      </div>
+
+      <ion-button fill="clear" class="resend-button" [disabled]="!canResend || isLoading" (click)="resendCode()">
+        <ion-spinner name="crescent" slot="start" *ngIf="isLoading"></ion-spinner>
+        <span>{{ resendText }}</span>
+      </ion-button>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions-section">
+      <ion-button fill="clear" expand="block" class="clear-button" (click)="clearOtp()">
+        {{ clearText}}
+      </ion-button>
+
+      <ion-button expand="block" class="verify-button" [disabled]="isCodeOtpValid" (click)="verifyOtp()">
+        <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+        <span *ngIf="!isLoading">Verificar código</span>
+      </ion-button>
+    </div>
+
+    <!-- Instructions -->
+    <ion-list class="otp-instructions">
+      <p>• Ingresa los {{ maxOtpLength }} dígitos del código</p>
+      <p>• El código se validará automáticamente</p>
+      <p>• Puedes pegar el código completo</p>
+    </ion-list>
+  </div>
+
+</ion-content>

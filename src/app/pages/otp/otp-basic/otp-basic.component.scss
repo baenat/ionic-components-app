@@ -1,0 +1,331 @@
+// .otp-container {
+// 	display: flex;
+// 	flex-direction: column;
+// 	align-items: center;
+// 	min-height: 100vh;
+// 	padding: 20px;
+// 	text-align: center;
+// }
+
+// ion-input {
+// 	width: 50px;
+// 	height: 55px;
+// 	border: 2px solid var(--ion-color-primary);
+// 	border-radius: 8px;
+// 	font-size: 1.5rem;
+// 	text-align: center;
+// 	--padding-start: 0;
+// 	--padding-end: 0;
+// }
+
+// /* Header Section */
+// .otp-header {
+// 	margin-bottom: 40px;
+
+// 	.otp-title {
+// 		font-size: 28px;
+// 		font-weight: 600;
+// 		margin-bottom: 12px;
+// 		color: var(--ion-color-dark);
+// 	}
+
+// 	.otp-subtitle {
+// 		font-size: 16px;
+// 		color: var(--ion-color-medium, #666666);
+// 		margin: 0;
+// 		line-height: 1.4;
+// 	}
+// }
+
+// /* OTP Input Section */
+// .otp-section {
+// 	margin-bottom: 40px;
+// 	width: 100%;
+// }
+
+// .otp-inputs-container {
+// 	display: flex;
+// 	justify-content: center;
+// 	gap: 12px;
+// 	margin-bottom: 16px;
+// 	flex-wrap: wrap;
+// }
+
+// .otp-input {
+// 	width: 56px;
+// 	height: 64px;
+// 	text-align: center;
+// 	font-size: 24px;
+// 	font-weight: 600;
+// 	border: 2px solid var(--ion-color-light-shade);
+// 	border-radius: 12px;
+// 	background: var(--ion-color-light);
+// 	transition: all 0.3s ease;
+
+// 	&::part(native) {
+// 		text-align: center;
+// 		padding: 0;
+// 		height: 100%;
+// 		font-size: 24px;
+// 		font-weight: 600;
+// 		border-radius: 12px;
+// 	}
+
+// 	&.has-value {
+// 		border-color: var(--ion-color-primary);
+// 		background: var(--ion-color-primary-tint);
+// 		color: var(--ion-color-primary-contrast);
+// 		transform: scale(1.05);
+// 	}
+
+// 	&.ion-focused {
+// 		border-color: var(--ion-color-primary);
+// 		box-shadow: 0 0 0 3px var(--ion-color-primary-tint);
+// 		transform: scale(1.05);
+// 	}
+
+// 	&.ion-invalid {
+// 		border-color: var(--ion-color-danger);
+// 		background: var(--ion-color-danger-tint);
+// 		animation: shake 0.5s ease-in-out;
+// 	}
+// }
+
+// .error-message {
+// 	margin-top: 8px;
+// 	min-height: 20px;
+// }
+
+// /* Timer Section */
+// .timer-section {
+// 	margin-bottom: 32px;
+
+// 	.timer {
+// 		margin-bottom: 16px;
+
+// 		ion-text {
+// 			font-size: 14px;
+// 		}
+// 	}
+
+// 	.resend-button {
+// 		--color: var(--ion-color-primary);
+// 		font-weight: 500;
+
+// 		&[disabled] {
+// 			--color: var(--ion-color-medium);
+// 		}
+// 	}
+// }
+
+// /* Action Buttons */
+// .actions-section {
+// 	width: 100%;
+// 	max-width: 280px;
+// 	margin-bottom: 32px;
+// }
+
+// .verify-button {
+// 	--background: var(--ion-color-primary);
+// 	--color: var(--ion-color-primary-contrast);
+// 	--border-radius: 12px;
+// 	--padding-top: 16px;
+// 	--padding-bottom: 16px;
+// 	font-weight: 600;
+// 	margin-bottom: 12px;
+
+// 	&[disabled] {
+// 		--background: var(--ion-color-light-shade);
+// 		--color: var(--ion-color-medium);
+// 	}
+// }
+
+// .clear-button {
+// 	--color: var(--ion-color-medium);
+// 	font-weight: 500;
+// margin-bottom: 24px;
+// }
+
+// /* Help Section */
+// .help-section {
+// 	max-width: 280px;
+
+// 	.inline-button {
+// 		--color: var(--ion-color-primary);
+// 		--padding-start: 4px;
+// 		--padding-end: 4px;
+// 		font-size: 12px;
+// 		margin: 0;
+// 		height: auto;
+// 	}
+// }
+
+.otp-container {
+	padding: 24px;
+	max-width: 400px;
+	margin: 0 auto;
+
+	.otp-header {
+		text-align: center;
+		margin-bottom: 38px;
+
+		.otp-title {
+			font-size: 30px;
+			font-weight: 600;
+			color: var(--ion-color-dark, #1a1a1a);
+		}
+
+		.otp-subtitle {
+			font-size: 16px;
+			color: var(--ion-color-medium, #666666);
+			margin: 0;
+			line-height: 1.4;
+		}
+	}
+
+	.otp-inputs-container {
+		margin-bottom: 38px;
+
+		.otp-inputs {
+			display: flex;
+			justify-content: center;
+			gap: 12px;
+			flex-wrap: wrap;
+
+			.otp-input {
+				--padding-start: 0;
+				--padding-end: 0;
+				--background: transparent;
+				--color: var(--ion-color-dark, #1a1a1a);
+				--border-radius: 12px;
+				--border-width: 2px;
+				--border-color: var(--ion-color-light-shade, #d0d0d0);
+				--padding: 0;
+				--inner-padding: 0;
+
+				width: 56px;
+				height: 56px;
+				text-align: center;
+				font-size: 1.5rem;
+				font-weight: 600;
+				border: var(--border-width) solid var(--border-color);
+				border-radius: var(--border-radius);
+				transition: all 0.2s ease-in-out;
+
+				&.ion-focused {
+					--border-color: var(--ion-color-primary, #3880ff);
+					--color: var(--ion-color-primary, #3880ff);
+					box-shadow: 0 0 0 3px var(--ion-color-primary-tint, rgba(56, 128, 255, 0.2));
+					transform: scale(1.05);
+				}
+
+				&.filled {
+					--border-color: var(--ion-color-success, #2dd36f);
+					// --color: var(--ion-color-success, #2dd36f);
+					// background: var(--ion-color-success-tint, rgba(45, 211, 111, 0.1));
+				}
+
+				input {
+					text-align: center !important;
+					caret-color: var(--ion-color-primary, #3880ff);
+				}
+
+				&.error {
+					--border-color: var(--ion-color-danger, #eb445a);
+					--color: var(--ion-color-danger, #eb445a);
+					animation: shake 0.4s ease-in-out;
+				}
+			}
+		}
+	}
+
+	// Footer with timer and resend
+	.otp-footer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 16px;
+		margin-bottom: 24px;
+
+		.timer-container {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			padding: 8px 16px;
+			background: var(--ion-color-light, #f8f9fa);
+			border-radius: 20px;
+			transition: all 0.3s ease;
+
+			&.expired {
+				// background: var(--ion-color-danger-tint, rgba(235, 68, 90, 0.1));
+
+				.timer-icon {
+					color: var(--ion-color-danger, #eb445a);
+				}
+			}
+
+			.timer-icon {
+				font-size: 18px;
+				color: var(--ion-color-medium, #666666);
+			}
+
+			.timer-text {
+				font-size: 14px;
+				color: var(--ion-color-dark, #1a1a1a);
+
+				strong {
+					color: var(--ion-color-primary, #3880ff);
+				}
+			}
+
+			.timer-expired {
+				font-size: 14px;
+				color: var(--ion-color-danger, #eb445a);
+				font-weight: 500;
+			}
+		}
+
+		.resend-button {
+			--color: var(--ion-color-primary);
+			font-weight: 500;
+
+			&:disabled {
+				--color: var(--ion-color-medium);
+			}
+
+			ion-spinner {
+				width: 16px;
+				height: 16px;
+			}
+		}
+	}
+
+	.clear-button {
+		--color: var(--ion-color-primary-tint);
+		font-weight: 500;
+		margin-bottom: 24px;
+	}
+
+	// Instructions
+	.otp-instructions {
+		background: var(--ion-color-light, #f8f9fa);
+		border-radius: 12px;
+		padding: 16px;
+
+		p {
+			margin: 4px 0;
+			font-size: 13px;
+			color: var(--ion-color-medium-shade, #555555);
+			display: flex;
+			align-items: flex-start;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>{{ nombre || 'Input Forms' }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="hammer"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Input Normal</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Nombre:</ion-label>
+      <ion-input type="text" placeholder="Awesome Input" [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Floating Label</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="fixed">Fixed Label</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <form #form="ngForm">
+
+    <ion-list-header>
+      <ion-label>Formulario válido: {{ form.valid }}</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="email" name="email" required [(ngModel)]="user.email"
+        pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input [type]="isPasswordHidden ? 'password' : 'text'" name="password" required
+        [(ngModel)]="user.password"></ion-input>
+      <ion-icon slot="end" [name]="isPasswordHidden ? 'eye-outline' : 'eye-off-outline'"
+        (click)="onVisiblePassword()"></ion-icon>
+    </ion-item>
+
+  </form>
+
+  <ion-button [disabled]="form.invalid" (click)="onSubmit(form)" type="submit" expand="block" shape="round">
+    Login
+  </ion-button>
+
+</ion-content>
