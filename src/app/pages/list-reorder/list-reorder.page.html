@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title color="primary">List - Reorder</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button color="primary" (click)="toggleReorder()">Toggle {{ isDisabled ? 'Off' : 'On'}}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-reorder-group [disabled]="isDisabled" (ionItemReorder)="doReorder($event)">
+    <ion-item *ngFor="let char of characters">
+      <ion-label>{{ char }}</ion-label>
+      <ion-reorder slot="end">
+        <ion-icon name="repeat-outline"></ion-icon>
+      </ion-reorder>
+    </ion-item>
+  </ion-reorder-group>
+
+</ion-content>
