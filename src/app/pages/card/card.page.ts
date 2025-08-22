@@ -5,7 +5,6 @@ import { ComponentsModule } from "src/app/components/components.module";
   selector: 'app-card',
   templateUrl: './card.page.html',
   styleUrls: ['./card.page.scss'],
-  imports: [ComponentsModule],
 })
 export class CardPage implements OnInit {
 

@@ -79,6 +79,11 @@ export class HomePage implements OnInit {
       icon: 'body-outline',
       name: 'Verificación OTP',
       redirectTo: '/otp'
+    },
+    {
+      icon: 'list-outline',
+      name: 'List - Sliding',
+      redirectTo: '/list'
     }
   ];
 

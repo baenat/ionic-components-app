@@ -60,6 +60,10 @@ const routes: Routes = [
     path: 'otp',
     loadChildren: () => import('./pages/otp/otp.module').then( m => m.OtpPageModule)
   },
+  {
+    path: 'list',
+    loadChildren: () => import('./pages/list/list.module').then( m => m.ListPageModule)
+  },
 ];
 
 @NgModule({
