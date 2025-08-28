@@ -30,7 +30,7 @@ export class ListReorderPage implements OnInit {
     const itemMove = this.characters.splice(event.detail.from, 1)[0];
     this.characters.splice(event.detail.to, 0, itemMove);
     event.detail.complete();
-    console.log(structuredClone(this.characters));
+    console.log(this.characters);
   }
 
   toggleReorder() {
