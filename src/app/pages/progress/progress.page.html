@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-capitalize ion-text-center">progress - range</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" fullscreen>
+
+  <ion-progress-bar type="determinate" [value]="porcentage" color="dark"></ion-progress-bar>
+
+  <ion-list>
+    <ion-item>
+      <ion-range min="0" max="100" color="dark" (ionChange)="rangeChange($event)">
+        <ion-icon slot="start" name="sunny-outline"></ion-icon>
+        <ion-icon slot="end" name="moon-outline"></ion-icon>
+      </ion-range>
+    </ion-item>
+  </ion-list>
+
+  <h3> Default Progressbar </h3>
+  <ion-progress-bar></ion-progress-bar>
+
+  <h3> Default Progressbar with 50 percent </h3>
+  <ion-progress-bar value="0.5"></ion-progress-bar>
+
+  <h3> Colorize Progressbar </h3>
+  <ion-progress-bar color="primary" value="0.5"></ion-progress-bar>
+  <ion-progress-bar color="secondary" value="0.5"></ion-progress-bar>
+
+  <h3> Other types </h3>
+  <ion-progress-bar value="0.25" buffer="0.5"></ion-progress-bar>
+  <ion-progress-bar type="indeterminate"></ion-progress-bar>
+  <ion-progress-bar type="indeterminate" reversed="true"></ion-progress-bar>
+</ion-content>
