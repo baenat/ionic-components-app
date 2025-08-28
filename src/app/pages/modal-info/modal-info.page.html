@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-capitalize ion-text-center">{{ name + ', ' + country }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button (click)="leaveWithoutArgs()" expand="block" shape="round">
+    Sin argumentos
+  </ion-button>
+  <ion-button (click)="leaveWithArgs()" expand="block" shape="round">
+    Con argumentos
+  </ion-button>
+</ion-content>
