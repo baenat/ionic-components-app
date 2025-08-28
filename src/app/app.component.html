@@ -7,11 +7,12 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
+        <ion-menu-toggle *ngFor="let c of menuOpts">
+          <ion-item  [routerLink]="c.redirectTo" detail>
+            <ion-icon [name]="c.icon" slot="start" color="primary"></ion-icon>
+            {{ c.name }}
+          </ion-item>
+        </ion-menu-toggle>
       </ion-list>
     </ion-content>
   </ion-menu>
