@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AnyARecord } from 'dns';
 
 @Component({
   selector: 'app-checkbox',
@@ -24,7 +23,7 @@ export class CheckboxPage implements OnInit {
   ngOnInit() {
   }
 
-  onClick = (item: AnyARecord) => {
+  onClick = (item: any) => {
     console.log(item);
   }
 
