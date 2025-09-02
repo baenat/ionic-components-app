@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Toast</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button (click)="presentToast()" expand="block" shape="round">
+    Present toast
+  </ion-button>
+  <ion-button (click)="presentToastWithOptions()" expand="block" fill="outline" shape="round">
+    present toast with options
+  </ion-button>
+</ion-content>
